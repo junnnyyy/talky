@@ -1,6 +1,6 @@
 package forever.young.talky.entity
 
 data class Message(
-    val id: Long,
+    val id: String,
     val content: String
 )
