@@ -36,6 +36,7 @@ dependencies {
 	implementation("org.springframework.kafka:spring-kafka")
 	implementation("org.springframework.cloud:spring-cloud-starter-zookeeper-config")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.apache.kafka:kafka-streams")
 
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
