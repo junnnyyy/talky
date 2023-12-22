@@ -1,4 +1,4 @@
-package forever.young.talky.config
+package forever.young.talky.config.kafka
 
 import forever.young.talky.entity.Message
 import forever.young.talky.serializer.MessageSerializer
@@ -14,14 +14,14 @@ import java.util.HashMap
 
 @Configuration
 class KafkaProducerConfig(
-    @Value("\${kafka.bootstrap-servers}")
-    private val servers: String,
+    @Value("\${kafka.producer.bootstrap-servers}")
+    private val bootStrapServer: String,
 ) {
 
     @Bean
     fun produceFactory(): ProducerFactory<String, Message> {
         val configProps: MutableMap<String, Any> = HashMap()
-        configProps[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = servers
+        configProps[ProducerConfig.BOOTSTRAP_SERVERS_CONFIG] = bootStrapServer
         configProps[ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG] = StringSerializer::class.java
         configProps[ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG] = MessageSerializer::class.java
         return DefaultKafkaProducerFactory(configProps)
